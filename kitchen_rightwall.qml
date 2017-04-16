@@ -60,10 +60,9 @@ Rectangle {
 
                 Repeater {
                     model: 3
-                    Rectangle {
+                    Box {
                         x: 15
                         height: 5
-                        color: "#938983"
                         width: parent.width - 2*x
 
                         Label {

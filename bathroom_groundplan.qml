@@ -15,14 +15,13 @@ Bathroom
 Rectangle {
 
     color: "white"
-    width: container.width*container.scale + 60
-    height: container.height*container.scale + 60
+    width: container.width*container.scale + 20
+    height: container.height*container.scale + 20
 
     Item {
         id: container
 
-        y: - 50
-        scale: 2
+        scale: 1
         width: 120
         height: 220
         anchors.centerIn: parent
@@ -34,7 +33,7 @@ Rectangle {
             Rectangle {
                 id: bottomLeftEdge
 
-                width: 2
+                width: 1
                 height: 60
                 color: "black"
                 anchors.bottom: parent.bottom
@@ -43,35 +42,35 @@ Rectangle {
             Rectangle {
                 id: topLeftEdge
 
-                height: 2
+                height: 1
                 width: 20
                 color: "black"
                 anchors.bottom: bottomLeftEdge.top
             }
 
             Rectangle {
-                width: 2
+                width: 1
                 color: "black"
                 x: topLeftEdge.width
                 height: parent.height - bottomLeftEdge.height
             }
 
             Rectangle {
-                width: 2
+                width: 1
                 color: "black"
                 height: parent.height
                 anchors.right: parent.right
             }
 
             Rectangle {
-                height: 2
+                height: 1
                 color: "black"
                 width: parent.width - 20
                 anchors.right: parent.right
             }
 
             Rectangle {
-                height: 2
+                height: 1
                 color: "black"
                 width: parent.width
                 anchors.bottom: parent.bottom
@@ -97,6 +96,7 @@ Rectangle {
 
             Box {
                 // toilet
+                x: -1
                 y: 15
                 width: 67
                 height: 35
@@ -113,6 +113,7 @@ Rectangle {
 
             Box {
                 // washbasin cabinet
+                x: -1
                 y: 65
                 width: 49
                 height: 60
@@ -164,6 +165,8 @@ Rectangle {
                 }
                 Box {
                     // mirror
+
+                    z: -1
                     width: 3
                     height: parent.height
                 }
@@ -183,6 +186,7 @@ Rectangle {
 
             Row {
                 // shower wall
+                x: -1
                 anchors.bottomMargin: 15
                 anchors.bottom: parent.bottom
                 spacing: 1

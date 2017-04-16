@@ -13,18 +13,20 @@ Rectangle {
         scale: 1
         anchors.centerIn: parent
         width: column.width + 40
-        height: column.height + 40
+        height: column.height + 30
 
         Column {
             id: column
-            spacing: 5
             anchors.centerIn: parent
+
+            spacing: 20
             Label {
                 color: "black"
-                text: "Kylpyhuone"
+                text: "Olohuone"
                 font.pixelSize: 40
                 anchors.horizontalCenter: parent.horizontalCenter
             }
+
             Row {
                 id: row
                 spacing: 20
@@ -32,16 +34,17 @@ Rectangle {
                 Repeater {
                     model: ListModel {
                         ListElement {
-                            source: "bathroom_groundplan.qml"
-                            title: "Pohjapiirros"
+                            source: "livingroom_leftwall.qml"
+                            title: "Vasen seinä"
                         }
                         ListElement {
-                            source: "bathroom_wall.qml"
+                            source: "livingroom_endwall.qml"
                             title: "Päätyseinä"
                         }
                     }
 
                     Column {
+                        spacing: 10
                         anchors.bottom: parent.bottom
                         Loader {
                             id: loader

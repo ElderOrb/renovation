@@ -9,14 +9,13 @@ Box {
     Row {
         id: row
         z: -1
-        Rectangle {
+        Box {
             clip: true
             width: 220
             height: 270
-            color: "#CCCCCC"
+            color: "transparent"
 
             Person {
-                color: "white"
                 anchors.horizontalCenter: parent.horizontalCenter
             }
             Label {
@@ -37,7 +36,7 @@ Box {
 
             Label {
                 id: shelfWidth
-                text: "120"
+                text: shelf.width.toString()
                 anchors {
                     bottomMargin: 5
                     bottom: shelf.top
@@ -54,38 +53,39 @@ Box {
             }
 
             Label {
-                text: "23      + "
+                text: "33"
                 fontSizeMode: Text.HorizontalFit
                 anchors {
                     left: parent.left
                     leftMargin: 6
                     bottom: shelf.top
-                    bottomMargin: 5
+                    bottomMargin: -height/2 - 5/2 + 1
                 }
             }
 
             Label {
-                text: "+     23"
+                text: "33"
                 fontSizeMode: Text.HorizontalFit
                 anchors {
                     right: parent.right
                     rightMargin: 6
                     bottom: shelf.top
-                    bottomMargin: 5
+                    bottomMargin: -height/2 - 5/2 + 1
                 }
             }
 
             Column {
                 id: shelf
                 spacing: 30
-                width: parent.width
-                anchors { bottom: parent.bottom; bottomMargin: 130 }
+                anchors {
+                    bottomMargin: 130
+                    bottom: parent.bottom
+                    horizontalCenter: parent.horizontalCenter
+                }
 
                 Repeater {
                     model: 3
-                    Rectangle {
-                        color: "#938983"
-                        anchors.horizontalCenter: parent.horizontalCenter
+                    Box {
                         width: 120
                         height: 5
                         Label {
@@ -104,7 +104,7 @@ Box {
             }
 
             Label {
-                text: "130"
+                text: shelf.anchors.bottomMargin.toString()
                 anchors {
                     top: shelf.bottom
                     bottom: parent.bottom
@@ -114,29 +114,20 @@ Box {
                 verticalAlignment: Text.AlignVCenter
             }
 
-            Rectangle {
+            Box {
                 x: 27
                 width: 8
                 height: width
                 radius: width/2
-                color: "#CCCCCC"
                 anchors { bottom: parent.bottom; bottomMargin: 110 }
             }
 
-            Rectangle {
+            Box {
                 x: 119
                 width: 8
                 height: width
                 radius: width/2
-                color: "#CCCCCC"
                 anchors { bottom: parent.bottom; bottomMargin: 14 }
-            }
-
-            Rectangle {
-                width: parent.width
-                height: 1
-                color: "gray"
-                anchors { bottom: parent.bottom; bottomMargin: 5 }
             }
         }
     }

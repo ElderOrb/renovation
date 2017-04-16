@@ -4,36 +4,35 @@ import "components"
 Rectangle {
     color: "white"
     width: container.width*container.scale + 40
-    height: container.height*container.scale + 70
-
+    height: container.height*container.scale + 30
 
     Item {
         id: container
 
-        y: 20
         scale: 1
         width: column.width
         height: column.height
-        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.centerIn: parent
 
         Column {
-            spacing: 5
             anchors {
                 right: parent.right
                 bottom: parent.bottom
-                bottomMargin: -30
+                bottomMargin: -10
             }
 
             Label {
                 color: "black"
                 text: "Hyllyt 110cm x 30cm x 5cm"
                 anchors.right: parent.right
+                font.pixelSize: 15
             }
 
             Label {
                 color: "black"
                 text: "Pöytä 90cm x 180cm"
                 anchors.right: parent.right
+                font.pixelSize: 15
             }
         }
 
@@ -44,7 +43,7 @@ Rectangle {
             Label {
                 color: "black"
                 text: "Keittiö"
-                font.pixelSize: 30
+                font.pixelSize: 40
                 anchors.horizontalCenter: parent.horizontalCenter
             }
 
@@ -67,6 +66,7 @@ Rectangle {
                         Label {
                             anchors.horizontalCenter: parent.horizontalCenter
                             text: model.title
+                            font.pixelSize: 25
                             color: "black"
                         }
                         Item {
