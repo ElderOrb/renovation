@@ -3,28 +3,31 @@ import "components"
 
 Rectangle {
     property int yOffset
-    width: 149 + 40 + 120
     height: 270
+    width: 149 + 40 + 120
     color: "transparent"
-    border.width: 1
-    border.color: "black"
+    border { width: 1; color: "black" }
+
     Row {
         z: -1
         height: parent.height
         Item {
             width: 149
             height: parent.height
+
             Label {
+                text: parent.width.toString()
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: "149"
             }
 
             Label {
                 id: shelfWidth
-                anchors.horizontalCenter: parent.horizontalCenter
                 text: "110"
-                anchors.bottom: shelf.top
-                anchors.bottomMargin: 5
+                anchors {
+                    bottom: shelf.top
+                    bottomMargin: 5
+                    horizontalCenter: parent.horizontalCenter
+                }
             }
 
             Label {
@@ -37,6 +40,7 @@ Rectangle {
                     bottomMargin: 5
                 }
             }
+
             Label {
                 text: "+  19.5"
                 fontSizeMode: Text.HorizontalFit
@@ -50,41 +54,41 @@ Rectangle {
 
             Column {
                 id: shelf
-                anchors.bottom: table.top
-                anchors.bottomMargin: 50
+                anchors { bottom: table.top; bottomMargin: 50 }
                 width: parent.width
                 spacing: 20
 
                 Repeater {
                     model: 3
                     Rectangle {
-                        color: "#938983"
                         x: 15
-                        width: parent.width - 2*x
                         height: 5
-                        Label {
+                        color: "#938983"
+                        width: parent.width - 2*x
 
+                        Label {
+                            text: height.toString()
                             height: 20
+                            visible: model.index < 2
+                            verticalAlignment: Text.AlignVCenter
                             anchors {
                                 top: parent.bottom
                                 topMargin: -1
                                 horizontalCenter: parent.horizontalCenter
                             }
-                            verticalAlignment: Text.AlignVCenter
-                            text: "20"
-                            visible: model.index < 2
                         }
                     }
                 }
             }
+
             Label {
                 text: "50"
+                verticalAlignment: Text.AlignVCenter
                 anchors {
                     top: shelf.bottom
                     bottom: table.top
                     horizontalCenter: parent.horizontalCenter
                 }
-                verticalAlignment: Text.AlignVCenter
             }
 
             Column {
@@ -99,83 +103,89 @@ Rectangle {
                 Row {
                     height: 70
                     width: parent.width
+
                     Rectangle {
-                        color: "gray"
                         width: 60
                         height: parent.height
+                        color: "gray"
                         Label {
-                            anchors.horizontalCenter: parent.horizontalCenter
                             text: "60"
                             color: "white"
+                            anchors.horizontalCenter: parent.horizontalCenter
                         }
                         Label {
                             x: 5
-                            anchors.verticalCenter: parent.verticalCenter
                             text: "70"
                             color: "white"
+                            anchors.verticalCenter: parent.verticalCenter
                         }
                     }
+
                     Column {
                         width: 80
                         Rectangle {
-                            color: "white"
-                            width: parent.width
                             height: 20
-                        }
-                        Rectangle {
-                            color: "gray"
-                            width: parent.width
-                            height: 1
-                        }
-                        Rectangle {
                             color: "white"
                             width: parent.width
-                            height: 25
                         }
                         Rectangle {
+                            height: 1
                             color: "gray"
                             width: parent.width
-                            height: 1
                         }
                         Rectangle {
+                            height: 25
                             color: "white"
                             width: parent.width
+                        }
+                        Rectangle {
+                            height: 1
+                            color: "gray"
+                            width: parent.width
+                        }
+                        Rectangle {
                             height: 25
+                            color: "white"
+                            width: parent.width
                         }
                     }
                 }
 
                 Rectangle {
+                    height: 1
                     color: "gray"
                     width: parent.width
-                    height: 1
                 }
+
                 Rectangle {
+                    height: 15
                     color: "white"
                     width: parent.width
-                    height: 15
                 }
             }
         }
+
         Rectangle {
             width: 1
             height: parent.height
             color: "gray"
         }
+
         Rectangle {
             width: 39
-            height: parent.height
             color: "white"
+            height: parent.height
             Rectangle {
-                width: parent.width
                 height: 1
                 color: "gray"
+                width: parent.width
                 anchors {
                     bottom: parent.bottom
                     bottomMargin: 84
                 }
             }
         }
+
         Rectangle {
             width: 1
             height: parent.height
@@ -185,17 +195,16 @@ Rectangle {
             width: 59
             height: parent.height
             color: "white"
+            clip: true
             Rectangle {
-                width: parent.width
                 height: 1
+                width: parent.width
                 color: "gray"
                 anchors {
                     bottom: parent.bottom
                     bottomMargin: 84
                 }
             }
-
-            clip: true
 
             Person {
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -203,17 +212,18 @@ Rectangle {
         }
         Rectangle {
             width: 1
-            height: parent.height
             color: "gray"
+            height: parent.height
         }
+
         Rectangle {
             width: 59
             height: parent.height
             color: "white"
             Rectangle {
-                width: parent.width
                 height: 1
                 color: "gray"
+                width: parent.width
                 anchors {
                     bottom: parent.bottom
                     bottomMargin: 84

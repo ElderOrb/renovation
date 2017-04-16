@@ -2,6 +2,16 @@ import QtQuick 2.0
 import "components"
 import QtMultimedia 5.0
 
+/*
+Bathroom
+- dimensions (100-120)x(64+156)x250
+- washbasin cabinet 60x49x(25+64=89 legs-drawer, 64=6+29+29)
+- toilet 70x35x(42-78)
+- mirror 60x96cm http://www.ikea.com/fi/fi/catalog/products/10182165/#/30149132
+- shower wall 48x190
+- lamps 8.6x15x14
+*/
+
 Rectangle {
 
     color: "white"
@@ -13,15 +23,16 @@ Rectangle {
 
         y: - 50
         scale: 2
-        anchors.centerIn: parent
         width: 120
         height: 220
+        anchors.centerIn: parent
 
         Item {
             // borders
             anchors.fill: parent
+
             Rectangle {
-                id: bottomLeft
+                id: bottomLeftEdge
 
                 width: 2
                 height: 60
@@ -30,19 +41,19 @@ Rectangle {
             }
 
             Rectangle {
-                id: edge
+                id: topLeftEdge
 
                 height: 2
                 width: 20
                 color: "black"
-                anchors.bottom: bottomLeft.top
+                anchors.bottom: bottomLeftEdge.top
             }
 
             Rectangle {
                 width: 2
                 color: "black"
-                x: edge.width
-                height: parent.height - bottomLeft.height
+                x: topLeftEdge.width
+                height: parent.height - bottomLeftEdge.height
             }
 
             Rectangle {
@@ -71,7 +82,7 @@ Rectangle {
             x: 21
 
             width: parent.width - x
-            height: parent.height - bottomLeft.height
+            height: parent.height - bottomLeftEdge.height
 
             Box {
                 // door
@@ -89,59 +100,58 @@ Rectangle {
                 y: 15
                 width: 67
                 height: 35
+
                 MouseArea {
                     anchors.fill: parent
                     onClicked: toiletSound.play()
                 }
-
                 Audio {
                     id: toiletSound
                     source: "sounds/toilet.m4a"
                 }
             }
+
             Box {
-                // washbasinCabinet
+                // washbasin cabinet
                 y: 65
                 width: 49
                 height: 60
                 Box {
                     // sink
                     x: 12
-                    anchors.verticalCenter: parent.verticalCenter
-                    height: parent.height - 10
                     width: parent.width*0.6
+                    height: parent.height - 10
+                    anchors.verticalCenter: parent.verticalCenter
+
                     Rectangle {
                         width: 11
                         height: 11
                         radius: width/2
-                        anchors.centerIn: parent
-                        anchors.horizontalCenterOffset: -5
-                        border.width: 1
-                        border.color: "black"
+                        anchors { centerIn: parent; horizontalCenterOffset: -5 }
+                        border { width: 1; color: "black" }
                     }
                 }
+
                 Box {
                     // tap
                     x: 5
                     height: 5
                     width: 5
                     radius: 2
-
-                    Box {
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.left: parent.right
-                        anchors.leftMargin: -1
-                        height: 3
-                        width: 10
-                    }
-
                     anchors.verticalCenter: parent.verticalCenter
 
-                    Rectangle {
+                    Box {
+                        height: 3
+                        width: 10
                         anchors {
-                            fill: parent
-                            margins: 1
+                            left: parent.right
+                            leftMargin: -1
+                            verticalCenter: parent.verticalCenter
                         }
+                    }
+
+                    Rectangle {
+                        anchors { fill: parent; margins: 1 }
                     }
                 }
                 MouseArea {
@@ -158,8 +168,8 @@ Rectangle {
                     height: parent.height
                 }
                 Column {
-                    anchors.verticalCenter: parent.verticalCenter
                     spacing: 20
+                    anchors.verticalCenter: parent.verticalCenter
                     Repeater {
                         model: 2
                         Box {
@@ -172,7 +182,7 @@ Rectangle {
             }
 
             Row {
-                // showerWall
+                // shower wall
                 anchors.bottomMargin: 15
                 anchors.bottom: parent.bottom
                 spacing: 1
@@ -201,7 +211,7 @@ Rectangle {
 
         Item {
             width: parent.width
-            height: bottomLeft.height
+            height: bottomLeftEdge.height
             anchors.bottom: parent.bottom
 
             Rectangle {
@@ -212,35 +222,22 @@ Rectangle {
                 radius: 10
                 color: "gray"
                 anchors {
+                    rightMargin: 4
+                    right: parent.right
                     verticalCenter: parent.top
                     verticalCenterOffset: -15
-                    right: parent.right
-                    rightMargin: 4
                 }
 
                 Rectangle {
 
                     // head
+                    radius: 8
                     width: 17
                     height: 21
                     color: "gray"
                     anchors.centerIn: parent
-                    radius: 8
                 }
             }
         }
     }
 }
-
-/*
-Kylpyhuone
-- Pohjapiirros
-- Takaseinä
-- kylpyhuone (100-120)x(64+156)x250
-- washbasinCabinet 60x49x(25+64=89 jalat-kaappi, 64=6+29+29)
-- vessa 70x35x(42-78 - pönttö-selkänoja)
-- peili 60x96cm http://www.ikea.com/fi/fi/catalog/products/10182165/#/30149132
-- showerWall hietakari 48x190 https://www.netrauta.fi/kylpyhuone/suihkuseinat-ja-nurkat/suihkuseinat/suihkuseina-hietakari-express-812-kaantyva-670x1900mm-kirkas
-- 2 Nordlux Marina 8.6x15x14 -lamppua, mutta niihin minulla ei ole vielä mittoja http://media.taloon.com/image/upload/q_70,f_auto,w_400,h_650,c_limit/cloud/k/nordlux/seinavalaisin-nordlux-marina-maxi-ip44-140x245x225mm-mustaopaali-lasi-2.jpg
-http://www.taloon.info/pdf/nordlux/seinavalaisin_marina_ip44_86x150x140_mm_kromi_opaali_lasi_asennusohje.pdf
-*/

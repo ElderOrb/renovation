@@ -2,12 +2,14 @@ import QtQuick 2.0
 import "components"
 
 Rectangle {
+
     color: "white"
     width: container.width*container.scale
     height: container.height*container.scale
 
     Item {
         id: container
+
         scale: 1
         anchors.centerIn: parent
         width: row.width + 40

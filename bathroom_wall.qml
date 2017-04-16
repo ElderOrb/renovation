@@ -1,6 +1,6 @@
 import QtQuick 2.0
-import "components"
 import QtMultimedia 5.0
+import "components"
 
 Rectangle {
 
@@ -13,28 +13,37 @@ Rectangle {
 
         y: - 50
         scale: 2
-        anchors.centerIn: parent
-        anchors.horizontalCenterOffset: -90/scale
         width: 220
         height: 250
         border.width: 2
         color: "transparent"
+        anchors {
+            centerIn: parent
+            horizontalCenterOffset: -90/scale
+        }
+
         Item {
-            z: -1
             id: showerArea
+
+            z: -1
             width: 60
             height: parent.height
+
             Column {
                 // shower
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.bottom: parent.bottom
-                anchors.bottomMargin: 80
+                anchors {
+                    bottom: parent.bottom
+                    bottomMargin: 80
+                    horizontalCenter: parent.horizontalCenter
+                }
                 spacing: -1
+
                 Box {
                     width: 26
                     height: 8
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
+
                 Box {
                     width: 4
                     height: 100
@@ -63,29 +72,29 @@ Rectangle {
 
         Item {
             z: -1
+            height: parent.height
+            anchors.right: parent.right
+            width: parent.width - showerArea.width + 1
+
             Rectangle {
                 width: 1
                 height: parent.height
                 color: "black"
             }
-
-            height: parent.height
-            width: parent.width - showerArea.width + 1
-            anchors.right: parent.right
-
             Box {
                 id: toilet
+
+                width: 35
+                height: 78
                 anchors {
                     bottom: parent.bottom
                     right: parent.right
                     rightMargin: 15
                 }
 
-                width: 35
-                height: 78
                 Box {
-                    width: parent.width
                     height: 42
+                    width: parent.width
                 }
 
                 MouseArea {
@@ -98,6 +107,7 @@ Rectangle {
                     source: "sounds/toilet.m4a"
                 }
             }
+
             Row {
                 anchors.bottom: mirror.top
                 anchors.bottomMargin: 5
@@ -115,13 +125,16 @@ Rectangle {
             }
 
             Column {
+                // bide
+
+                spacing: -2
                 anchors {
                     right: toilet.left
                     rightMargin: 4
                     top: toilet.top
                     topMargin: 2
                 }
-                spacing: -2
+
                 Box {
                     z: 1
                     width: 7
@@ -129,42 +142,48 @@ Rectangle {
                     radius: width/2
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
+
                 Box {
-                    // bide
                     height: 18
                     width: 5
                     anchors.horizontalCenter: parent.horizontalCenter
+
                     Box {
                         width: 3
                         height: 30
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        anchors.top: parent.bottom
-                        anchors.topMargin: -1
+                        anchors {
+                            top: parent.bottom
+                            topMargin: -1
+                            horizontalCenter: parent.horizontalCenter
+                        }
+
                         Box {
                             height: 3
                             width: 10
-                            anchors.right: parent.left
-                            anchors.rightMargin: -1
-                            anchors.bottom: parent.bottom
+                            anchors {
+                                right: parent.left
+                                rightMargin: -1
+                                bottom: parent.bottom
+                            }
                             Rectangle {
                                 height: 1
-                                anchors.verticalCenter: parent.verticalCenter
                                 width: parent.width
+                                anchors.verticalCenter: parent.verticalCenter
                             }
                         }
                     }
                 }
             }
 
-
-
             Box {
                 id: mirror
-                anchors.horizontalCenter: washbasinCabinet.horizontalCenter
-                anchors.bottom: washbasinCabinet.top
-                anchors.bottomMargin: 20
                 width: 60
                 height: 60
+                anchors {
+                    bottomMargin: 20
+                    bottom: washbasinCabinet.top
+                    horizontalCenter: washbasinCabinet.horizontalCenter
+                }
             }
 
             Column {
@@ -180,16 +199,13 @@ Rectangle {
                     color: "black"
                     height: 4
                     width: 2
-                    anchors {
-                        horizontalCenter: parent.horizontalCenter
-                    }
+                    anchors.horizontalCenter: parent.horizontalCenter
                 }
-
 
                 Box {
                     // tap
-                    height: 16
                     width: 6
+                    height: 16
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
 
@@ -197,22 +213,24 @@ Rectangle {
                     // drawer
                     width: 60
                     height: drawer.height
+
                     Column {
                         id: drawer
                         width: parent.width
                         spacing: -1
+
                         Box {
                             width: parent.width + 2
                             height: 6
                             anchors.horizontalCenter: parent.horizontalCenter
                         }
                         Box {
-                            width: parent.width
                             height: 29
+                            width: parent.width
                         }
                         Box {
-                            width: parent.width
                             height: 29
+                            width: parent.width
                         }
                     }
 
@@ -231,28 +249,22 @@ Rectangle {
                     anchors.horizontalCenter: parent.horizontalCenter
                     Repeater {
                         model: 2
-                        Box {
-                            height: 22
-                            width: 4
-                        }
+                        Box { width: 4; height: 22 }
                     }
                 }
             }
 
             Box {
                 // showerWall
+                x: 15
                 width: 3
                 height: 190
                 anchors.bottom: parent.bottom
-                x: 15
             }
         }
 
         Person {
-            anchors {
-                left: parent.right
-                leftMargin: 10
-            }
+            anchors { left: parent.right; leftMargin: 10 }
         }
     }
 }

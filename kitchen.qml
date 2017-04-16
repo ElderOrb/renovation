@@ -9,25 +9,27 @@ Rectangle {
 
     Item {
         id: container
-        scale: 1
+
         y: 20
-        anchors.horizontalCenter: parent.horizontalCenter
+        scale: 1
         width: column.width
         height: column.height
+        anchors.horizontalCenter: parent.horizontalCenter
 
         Column {
+            spacing: 5
             anchors {
-                bottom: parent.bottom
                 right: parent.right
+                bottom: parent.bottom
                 bottomMargin: -30
             }
 
-            spacing: 5
             Label {
                 color: "black"
                 text: "Hyllyt 110cm x 30cm x 5cm"
                 anchors.right: parent.right
             }
+
             Label {
                 color: "black"
                 text: "Pöytä 90cm x 180cm"
@@ -38,12 +40,14 @@ Rectangle {
         Column {
             id: column
             spacing: 10
+
             Label {
                 color: "black"
                 text: "Keittiö"
                 font.pixelSize: 30
                 anchors.horizontalCenter: parent.horizontalCenter
             }
+
             Row {
                 id: row
                 spacing: 20

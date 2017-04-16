@@ -31,19 +31,22 @@ Rectangle {
 
         Box {
             id: box
+
+            y: 30
             width: 315
             height: 270
-            y: 30
             color: "transparent"
 
             Image {
                 id: image
-                anchors.centerIn: parent
-                source: "images/kitchen_endwall.png"
-                scale: 1/2.133333
                 z: -1
-                anchors.horizontalCenterOffset: 6
-                anchors.verticalCenterOffset: 23
+                scale: 1/2.133333
+                source: "images/kitchen_endwall.png"
+                anchors {
+                    centerIn: parent
+                    verticalCenterOffset: 23
+                    horizontalCenterOffset: 6
+                }
             }
 
             Box {
@@ -62,10 +65,12 @@ Rectangle {
                         height: 2
                         x: model.index == 0 ? 0 : parent.width - width
                         Label {
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            anchors.bottom: parent.top
                             text: "5"
                             font.pixelSize: 8
+                            anchors {
+                                bottom: parent.top
+                                horizontalCenter: parent.horizontalCenter
+                            }
                         }
                     }
                 }
@@ -90,11 +95,11 @@ Rectangle {
 
             Item {
                 id: rightLamps
-                anchors.left: cookerHood.right
-                anchors.right: shelf.left
+                anchors { left: cookerHood.right; right: shelf.left }
                 Row {
-                    x: 20-lampWidth/2
+                    x: 20 - lampWidth/2
                     spacing: 25 - lampWidth
+
                     Lamp {
                         id: lamp3
                         cordHeight: 80
@@ -120,29 +125,28 @@ Rectangle {
 
             Column {
                 id: shelf
-                anchors.bottom: table.top
-                anchors.bottomMargin: 50
-                anchors.right: parent.right
-
                 spacing: 20
+                anchors {
+                    bottom: table.top
+                    bottomMargin: 50
+                    right: parent.right
+                }
 
                 Repeater {
                     model: 3
                     Box {
                         width: 30
-
                         height: 5
                         Label {
-
+                            text: "20"
                             height: 20
+                            visible: model.index < 2
+                            verticalAlignment: Text.AlignVCenter
                             anchors {
                                 top: parent.bottom
                                 topMargin: -1
                                 horizontalCenter: parent.horizontalCenter
                             }
-                            verticalAlignment: Text.AlignVCenter
-                            text: "20"
-                            visible: model.index < 2
                         }
                     }
                 }
@@ -150,28 +154,24 @@ Rectangle {
 
             Label {
                 text: "50"
+                verticalAlignment: Text.AlignVCenter
                 anchors {
                     top: shelf.bottom
                     bottom: table.top
                     right: parent.right
                     rightMargin: 5
                 }
-                verticalAlignment: Text.AlignVCenter
             }
 
             Rectangle {
                 color: "white"
-                anchors.fill: cookerHood
-                anchors.margins: -5
+                anchors { fill: cookerHood; margins: -5 }
             }
 
             Column {
                 id: cookerHood
-                anchors {
-                    bottom: table.top
-                    bottomMargin: 62
-                }
                 x: 11 + 60
+                anchors { bottom: table.top; bottomMargin: 62 }
 
                 Rectangle {
                     height: 75
@@ -179,6 +179,7 @@ Rectangle {
                     anchors.horizontalCenter: parent.horizontalCenter
                     color: "black"
                 }
+
                 Rectangle {
                     height: 5
                     width: 60
@@ -188,16 +189,17 @@ Rectangle {
 
             Column {
                 id: table
+
+                opacity: 0.3
+                visible: false
                 width: parent.width
                 anchors.bottom: parent.bottom
-                visible: false
                 Rectangle {
                     // table top
                     height: 4
                     width: parent.width
                     color: "black"
                 }
-                opacity: 0.3
                 Rectangle {
                     // boxes
                     color: "white"
