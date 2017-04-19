@@ -22,7 +22,7 @@ Rectangle {
                     height: label.height + 5
                     Label {
                         id: label
-                        text: parent.width == 26 ? 25 : (parent.width == 64 ? 65 : parent.width)
+                        text: parent.width == 26 ? 25 : (parent.width == 64 ? 65 : (parent.width == 101 ? 100 : parent.width))
                         anchors.horizontalCenter: parent.horizontalCenter
                     }
                 }
