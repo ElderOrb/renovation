@@ -259,7 +259,6 @@ Rectangle {
                     rightMargin: 5
                     right: parent.right
                     verticalCenter: parent.top
-                    verticalCenterOffset: -15
                 }
 
                 Rectangle {

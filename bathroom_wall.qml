@@ -25,7 +25,7 @@ Rectangle {
                 id: showerArea
 
                 z: -1
-                width: 60
+                width: 65
                 height: parent.height
 
                 Column {
@@ -33,12 +33,12 @@ Rectangle {
                     anchors {
                         bottom: parent.bottom
                         bottomMargin: 80
-                        horizontalCenter: parent.horizontalCenter
                     }
+                    x: 20
                     spacing: -1
 
                     Box {
-                        width: 26
+                        width: 15
                         height: 8
                         anchors.horizontalCenter: parent.horizontalCenter
                     }
@@ -53,15 +53,15 @@ Rectangle {
                         spacing: -1
                         anchors.horizontalCenter: parent.horizontalCenter
                         Box {
-                            width: 5
+                            width: 4
                             height: parent.height
                         }
                         Box {
-                            width: 30
+                            width: 12
                             height: parent.height
                         }
                         Box {
-                            width: 5
+                            width: 4
                             height: parent.height
                         }
                     }

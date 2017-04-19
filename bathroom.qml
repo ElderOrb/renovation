@@ -17,7 +17,7 @@ Rectangle {
 
         Column {
             id: column
-            spacing: 5
+            spacing: 20
             anchors.centerIn: parent
             Label {
                 color: "black"
