@@ -10,13 +10,24 @@ Box {
             right: parent.right
             bottom: parent.bottom
         }
-        height: 200
-        width: 130
+        height: 210
+        width: 140
         Box {
             anchors {
                 fill: parent
                 margins: 10
                 bottomMargin: 0
+            }
+            Label {
+                text: parent.height.toString()
+                verticalAlignment: Text.AlignVCenter
+                x: 5
+                anchors {
+                    top: parent.top
+                    bottom: parent.bottom
+                    bottomMargin: 15
+                }
+                font.pixelSize: 15
             }
         }
         Person {
@@ -24,14 +35,14 @@ Box {
         }
     }
     Box {
-        // television
+        id: television
         anchors {
-            bottomMargin: 10
+            bottomMargin: 15
             bottom: sideboard.top
             horizontalCenter: sideboard.horizontalCenter
         }
-        width: 118.4
-        height: 72
+        width: 124
+        height: 75
         Box {
             anchors {
                 fill: parent
@@ -41,6 +52,17 @@ Box {
         }
     }
 
+    Label {
+        anchors {
+            top: television.bottom
+            bottom: sideboard.top
+            horizontalCenter: television.horizontalCenter
+        }
+        verticalAlignment: Text.AlignVCenter
+
+        text: height.toString()
+        font.pixelSize: 15
+    }
     Column {
         id: sideboard
         anchors {
@@ -48,6 +70,7 @@ Box {
             right: door.left
             rightMargin: (parent.width - door.width - drawer.width - shelf.width)/2
         }
+        opacity: 0.3
         Box {
             id: drawer
             width: 160
@@ -80,6 +103,7 @@ Box {
             z: -1
             height: 21
             width: 160
+            clip: true
             Box {
                 x: 5
                 y: -3
@@ -95,6 +119,59 @@ Box {
                 rotation: 15
                 transform: Scale { xScale: -1 }
             }
+        }
+    }
+
+    Row {
+        height: 35
+        anchors.bottom: shelf.top
+        anchors.bottomMargin: 10
+
+        Repeater {
+            id: repeater
+            model: [25, television.x, television.x + television.width, door.x, door.x + door.width]
+            Label {
+                property int value: modelData
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                width: model.index > 0 ? value - repeater.itemAt(model.index - 1).value : modelData
+                text: width === 51 ? "50" : width.toString()
+                height: parent.height
+                Rectangle {
+                    y: 10
+                    height: model.index > 1 && model.index < 4 ? 75 : 20
+                    width: 1
+                    color: "gray"
+                }
+            }
+        }
+    }
+
+    Column {
+        anchors {
+            left: television.right
+            leftMargin: 22
+        }
+
+        Repeater {
+            id: repeater2
+            model: [television.y, television.y + television.height, parent.parent.height]
+            Label {
+                property int value: modelData
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                height: model.index > 0 ? value - repeater2.itemAt(model.index - 1).value : modelData
+                text: (model.index === 0 ? "\n\n" : "") +  height.toString()
+                font.pixelSize: 15
+
+                Rectangle {
+                    width: 20
+                    x: -width
+                    height: 1
+                    color: "gray"
+                }
+            }
+
         }
     }
     Label {
@@ -126,7 +203,7 @@ Box {
                 height: 5
                 Label {
                     text: "30"
-                    height: 30
+                    height: shelf.spacing.toString()
                     visible: model.index < 2
                     verticalAlignment: Text.AlignVCenter
                     anchors {
@@ -135,6 +212,7 @@ Box {
                         horizontalCenter: parent.horizontalCenter
                     }
                 }
+
             }
         }
     }

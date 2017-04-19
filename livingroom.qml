@@ -12,7 +12,7 @@ Rectangle {
 
         scale: 1
         anchors.centerIn: parent
-        width: column.width + 40
+        width: column.width + 30
         height: column.height + 30
 
         Column {
