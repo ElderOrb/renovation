@@ -15,8 +15,9 @@ Rectangle {
         spacing: 20
         anchors.centerIn: parent
         Box {
+            id: wall
             width: 220
-            height: 250
+            height: 224
             border.width: 1
             color: "transparent"
 
@@ -87,7 +88,7 @@ Rectangle {
                     anchors {
                         bottom: parent.bottom
                         right: parent.right
-                        rightMargin: 15
+                        rightMargin: 11
                     }
 
                     Box {
@@ -106,7 +107,9 @@ Rectangle {
                     }
                 }
 
+
                 Row {
+                    id: lamps
                     anchors.bottom: mirror.top
                     anchors.bottomMargin: 5
 
@@ -118,6 +121,7 @@ Rectangle {
                             // lamp
                             height: 14
                             width: 8.6
+                            color: "lightyellow"
                         }
                     }
                 }
@@ -127,10 +131,10 @@ Rectangle {
 
                     spacing: -2
                     anchors {
-                        right: toilet.left
-                        rightMargin: 4
-                        top: toilet.top
-                        topMargin: 2
+                        right: parent.right
+                        rightMargin: 57
+                        bottom: parent.bottom
+                        bottomMargin: 76
                     }
 
                     Box {
@@ -157,7 +161,7 @@ Rectangle {
 
                             Box {
                                 height: 3
-                                width: 10
+                                width: 15
                                 anchors {
                                     right: parent.left
                                     rightMargin: -1
@@ -173,6 +177,58 @@ Rectangle {
                     }
                 }
 
+                Row {
+                    anchors.bottom: parent.top
+                    anchors.bottomMargin: 5
+                    Repeater {
+                        id: repeater2
+                        model: [lamps.x, lamps.x + 8.6, lamps.x + lamps.width - 8.6, lamps.x + lamps.width, parent.parent.width]
+                        Label {
+                            opacity: model.index === 0 ? 0.0 : 1.0
+                            property real value: modelData
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                            width: model.index > 0 ? value - repeater2.itemAt(model.index - 1).value : value
+                            text: width.toFixed(1)
+                            font.pixelSize: 12
+                            Rectangle {
+                                anchors.top: parent.bottom
+                                height: 20
+                                width: 1
+                                x: -1
+
+                                color: "gray"
+                            }
+                        }
+                    }
+                }
+                Column {
+                    anchors {
+                        left: lamps.right
+                        leftMargin: 20
+                    }
+                    Repeater {
+                        id: repeater
+                        model: [lamps.y, lamps.y + lamps.height, mirror.y]
+                        Label {
+                            property int value: modelData
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                            height: model.index > 0 ? value - repeater.itemAt(model.index - 1).value : value
+                            text: height.toString()
+                            font.pixelSize: 12
+                            Rectangle {
+                               anchors.bottom: parent.bottom
+                                anchors.right: parent.left
+                                anchors.rightMargin: 3
+                                width: 15
+                                height: 1
+                                y: -1
+                                color: "gray"
+                            }
+                        }
+                    }
+                }
                 Box {
                     id: mirror
                     width: 60
@@ -182,14 +238,25 @@ Rectangle {
                         bottom: washbasinCabinet.top
                         horizontalCenter: washbasinCabinet.horizontalCenter
                     }
+                    Label {
+                        anchors.centerIn: parent
+                        text: "60x70"
+                    }
+                }
+
+                Item {
+                    id: wastePipeAnchor
+                    anchors {
+                        right: parent.right
+                        rightMargin: 99
+                    }
                 }
 
                 Column {
                     id: washbasinCabinet
                     anchors {
-                        right: parent.right
-                        rightMargin: 65
                         bottom: parent.bottom
+                        horizontalCenter: wastePipeAnchor.horizontalCenter
                     }
                     spacing: -1
 
@@ -260,9 +327,21 @@ Rectangle {
                     anchors.bottom: parent.bottom
                 }
             }
+
+
+            Box {
+                height: 3
+                width: 10
+                anchors {
+                    right: parent.right
+                    rightMargin: 49
+                    bottom: parent.bottom
+                    bottomMargin: 152
+                }
+            }
         }
         Item {
-            height: 250
+            height: wall.height
             width: person.width
             Person { id: person }
         }

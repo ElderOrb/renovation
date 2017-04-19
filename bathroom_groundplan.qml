@@ -22,7 +22,7 @@ Rectangle {
         id: container
 
         scale: 1
-        width: 120
+        width: 115
         height: 220
         anchors.centerIn: parent
 
@@ -34,7 +34,7 @@ Rectangle {
                 id: bottomLeftEdge
 
                 width: 1
-                height: 60
+                height: 65
                 color: "black"
                 anchors.bottom: parent.bottom
             }
@@ -43,7 +43,7 @@ Rectangle {
                 id: topLeftEdge
 
                 height: 1
-                width: 20
+                width: 18
                 color: "black"
                 anchors.bottom: bottomLeftEdge.top
             }
@@ -65,7 +65,7 @@ Rectangle {
             Rectangle {
                 height: 1
                 color: "black"
-                width: parent.width - 20
+                width: parent.width - topLeftEdge.width
                 anchors.right: parent.right
             }
 
@@ -77,8 +77,18 @@ Rectangle {
             }
         }
 
+        Box {
+            x: 15
+            anchors {
+                bottom: parent.bottom
+                bottomMargin: 19
+            }
+            width: 19
+            height: width
+        }
+
         Item {
-            x: 21
+            x: topLeftEdge.width + 1
 
             width: parent.width - x
             height: parent.height - bottomLeftEdge.height
@@ -87,7 +97,7 @@ Rectangle {
                 // door
                 y: 60
                 width: 6
-                height: 70
+                height: 80
                 anchors {
                     right: parent.right
                     rightMargin: -2
@@ -96,10 +106,15 @@ Rectangle {
 
             Box {
                 // toilet
-                x: -1
-                y: 15
-                width: 67
+                x: 5
+                y: 11
+                width: parent.width - 29.5 - x
                 height: 35
+
+                Box {
+                    width: 14
+                    height: parent.height
+                }
 
                 MouseArea {
                     anchors.fill: parent
@@ -111,9 +126,15 @@ Rectangle {
                 }
             }
 
+            Item {
+                id: wastePipeAnchor
+                y: 99
+            }
+
             Box {
                 // washbasin cabinet
                 x: -1
+                anchors.verticalCenter: wastePipeAnchor.verticalCenter
                 y: 65
                 width: 49
                 height: 60
@@ -171,7 +192,7 @@ Rectangle {
                     height: parent.height
                 }
                 Column {
-                    spacing: 20
+                    spacing: 35
                     anchors.verticalCenter: parent.verticalCenter
                     Repeater {
                         model: 2
@@ -218,6 +239,15 @@ Rectangle {
             height: bottomLeftEdge.height
             anchors.bottom: parent.bottom
 
+            Box {
+                width: 12
+                height: 20
+                anchors {
+                    bottom: parent.bottom
+                    bottomMargin: 20
+                }
+            }
+
             Rectangle {
 
                 // person
@@ -226,7 +256,7 @@ Rectangle {
                 radius: 10
                 color: "gray"
                 anchors {
-                    rightMargin: 4
+                    rightMargin: 5
                     right: parent.right
                     verticalCenter: parent.top
                     verticalCenterOffset: -15
