@@ -46,20 +46,20 @@ Box {
 
         Box {
             id: table
-            width: 90
-            height: 180
+            width: 100
+            height: 200
             anchors {
                 bottom: parent.bottom
                 horizontalCenter: parent.horizontalCenter
             }
 
             Label {
-                text: "30"
+                text: lamps.spacing.toString()
                 anchors.centerIn: parent
             }
 
             Label {
-                text: "180"
+                text: table.height.toString()
                 anchors {
                     left: parent.right
                     leftMargin: 5
@@ -68,7 +68,7 @@ Box {
             }
 
             Label {
-                text: "90"
+                text: table.width.toString()
                 anchors {
                     bottom: parent.top
                     bottomMargin: 5
@@ -77,7 +77,7 @@ Box {
             }
 
             Label {
-                text: "35"
+                text: ((table.height - lamps.height)/2).toString()
                 verticalAlignment: Text.AlignVCenter
                 anchors {
                     top: parent.top
@@ -86,7 +86,7 @@ Box {
                 }
             }
             Label {
-                text: "35"
+                text: ((table.height - lamps.height)/2).toString()
                 verticalAlignment: Text.AlignVCenter
                 anchors {
                     horizontalCenter: parent.horizontalCenter
@@ -98,13 +98,15 @@ Box {
             Column {
                 id: lamps
                 anchors.centerIn: parent
-                spacing: 30
+                spacing: 35
                 Repeater {
                     model: 2
                     Box {
                         width: 40
                         height: 40
                         radius: width/2
+                        color: "lightyellow"
+
                         Label {
                             text: "40"
                             anchors.centerIn: parent
