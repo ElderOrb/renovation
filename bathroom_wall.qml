@@ -204,7 +204,7 @@ Rectangle {
                     }
                     Label {
                         anchors.centerIn: parent
-                        text: "60x70"
+                        text: mirror.width.toString() + "x" + mirror.height.toString()
                     }
                 }
 

@@ -22,8 +22,7 @@ Rectangle {
             }
 
             Label {
-                id: shelfWidth
-                text: "110"
+                text: shelf.width.toString()
                 anchors {
                     bottom: shelf.top
                     bottomMargin: 5
@@ -34,7 +33,7 @@ Rectangle {
             Repeater {
                 model: 2
                 Label {
-                    text: "19.5"
+                    text: shelf.x
                     fontSizeMode: Text.HorizontalFit
                     font.pixelSize: 15
                     horizontalAlignment: Text.AlignHCenter
@@ -52,7 +51,7 @@ Rectangle {
             Column {
                 id: shelf
                 anchors { bottom: table.top; bottomMargin: 50 }
-                x: 15
+                x: 19.5
                 width: parent.width - 2*x
                 spacing: 20
 
@@ -79,7 +78,7 @@ Rectangle {
             }
 
             Label {
-                text: "50"
+                text: shelf.anchors.bottomMargin.toString()
                 verticalAlignment: Text.AlignVCenter
                 anchors {
                     top: shelf.bottom
@@ -108,13 +107,13 @@ Rectangle {
                         height: parent.height
                         color: "gray"
                         Label {
-                            text: "60"
+                            text: parent.width.toString()
                             color: "white"
                             anchors.horizontalCenter: parent.horizontalCenter
                         }
                         Label {
                             x: 5
-                            text: "70"
+                            text: parent.height.toString()
                             color: "white"
                             anchors.verticalCenter: parent.verticalCenter
                         }

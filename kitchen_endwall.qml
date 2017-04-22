@@ -56,7 +56,7 @@ Rectangle {
                         height: 2
                         x: model.index == 0 ? 0 : parent.width - width
                         Label {
-                            text: "5"
+                            text: parent.width.toString()
                             font.pixelSize: 8
                             anchors {
                                 bottom: parent.top
@@ -131,7 +131,7 @@ Rectangle {
                         width: 30
                         height: 5
                         Label {
-                            text: "20"
+                            text: shelf.spacing.toString()
                             height: 20
                             visible: model.index < 2
                             verticalAlignment: Text.AlignVCenter
@@ -146,7 +146,7 @@ Rectangle {
             }
 
             Label {
-                text: "50"
+                text: shelf.anchors.bottomMargin.toString()
                 verticalAlignment: Text.AlignVCenter
                 anchors {
                     top: shelf.bottom

@@ -35,7 +35,7 @@ Box {
 
         Label {
             visible: false
-            text: "82.5"
+            text: width.toString()
             anchors {
                 left: parent.left
                 right: table.left
@@ -108,7 +108,7 @@ Box {
                         color: "lightyellow"
 
                         Label {
-                            text: "40"
+                            text: parent.width.toString()
                             anchors.centerIn: parent
                         }
                     }

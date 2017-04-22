@@ -21,7 +21,7 @@ Box {
             }
 
             Label {
-                text: "270"
+                text: parent.height.toString()
                 color: "white"
                 anchors {
                     rightMargin: 5
@@ -46,7 +46,7 @@ Box {
                 }
             }
             Label {
-                text: "186"
+                text: parent.width.toString()
                 anchors {
                     bottomMargin: 10
                     bottom: parent.bottom
@@ -55,7 +55,7 @@ Box {
             }
 
             Label {
-                text: "33"
+                text: ((parent.width - shelf.width)/2).toString()
                 fontSizeMode: Text.HorizontalFit
                 anchors {
                     left: parent.left
@@ -66,7 +66,7 @@ Box {
             }
 
             Label {
-                text: "33"
+                text: ((parent.width - shelf.width)/2).toString()
                 fontSizeMode: Text.HorizontalFit
                 anchors {
                     right: parent.right
@@ -91,7 +91,7 @@ Box {
                         width: 120
                         height: 5
                         Label {
-                            text: "30"
+                            text: shelf.spacing.toString()
                             height: 30
                             visible: model.index < 2
                             verticalAlignment: Text.AlignVCenter

@@ -30,7 +30,7 @@ Rectangle {
 
             Label {
                 color: "black"
-                text: "Pöytä 90cm x 180cm"
+                text: "Pöytä 10cm x 200cm"
                 anchors.right: parent.right
                 font.pixelSize: 15
             }

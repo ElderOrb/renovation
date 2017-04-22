@@ -186,8 +186,8 @@ Box {
                 width: 25
                 height: 5
                 Label {
-                    text: "30"
-                    height: shelf.spacing.toString()
+                    height: shelf.spacing
+                    text: shelf.spacing.toString()
                     visible: model.index < 2
                     verticalAlignment: Text.AlignVCenter
                     anchors {
