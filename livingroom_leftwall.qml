@@ -9,6 +9,7 @@ Box {
     Row {
         id: row
         z: -1
+
         Box {
             clip: true
             width: 220
@@ -18,6 +19,7 @@ Box {
             Person {
                 anchors.horizontalCenter: parent.horizontalCenter
             }
+
             Label {
                 text: "270"
                 color: "white"

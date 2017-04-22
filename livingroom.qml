@@ -46,6 +46,7 @@ Rectangle {
                     Column {
                         spacing: 10
                         anchors.bottom: parent.bottom
+
                         Loader {
                             id: loader
                             source: model.source

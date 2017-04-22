@@ -4,6 +4,7 @@ import "components"
 Box {
     width: 380
     height: 270
+
     Box {
         id: door
         anchors {
@@ -13,6 +14,7 @@ Box {
         }
         height: 205
         width: 135
+
         Box {
             anchors {
                 fill: parent
@@ -35,6 +37,7 @@ Box {
             anchors.horizontalCenter: parent.horizontalCenter
         }
     }
+
     Box {
         id: television
         anchors {
@@ -44,6 +47,7 @@ Box {
         }
         width: 124
         height: 75
+
         Box {
             anchors {
                 fill: parent
@@ -64,14 +68,16 @@ Box {
         text: height.toString()
         font.pixelSize: 15
     }
+
     Column {
         id: sideboard
+        opacity: 0.3
         anchors {
             bottom: parent.bottom
             right: door.left
             rightMargin: (parent.width - door.width - door.anchors.rightMargin - drawer.width - shelf.width)/2
         }
-        opacity: 0.3
+
         Box {
             id: drawer
             width: 160
@@ -100,6 +106,7 @@ Box {
                 height: parent.height
             }
         }
+
         Item {
             z: -1
             height: 21
@@ -131,6 +138,7 @@ Box {
         Repeater {
             id: repeater
             model: [25, television.x, television.x + television.width, door.x, door.x + door.width + door.anchors.rightMargin]
+
             Label {
                 property int value: modelData
                 horizontalAlignment: Text.AlignHCenter
@@ -157,6 +165,7 @@ Box {
         Repeater {
             id: repeater2
             model: [television.y, television.y + television.height, parent.parent.height]
+
             Label {
                 property int value: modelData
                 horizontalAlignment: Text.AlignHCenter
@@ -175,6 +184,7 @@ Box {
 
         }
     }
+
     Label {
         text: shelf.anchors.bottomMargin.toString()
         verticalAlignment: Text.AlignVCenter

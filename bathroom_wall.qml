@@ -48,6 +48,7 @@ Rectangle {
                         height: 100
                         anchors.horizontalCenter: parent.horizontalCenter
                     }
+
                     Row {
                         height: 10
                         spacing: -1

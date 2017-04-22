@@ -11,11 +11,14 @@ Rectangle {
 
     Column {
         x: 10
+
         Row {
             id: labelRow
+
             Repeater {
                 id: repeater
                 model: [lamp1.absoluteX, lamp2.absoluteX, lamp3.absoluteX, lamp4.absoluteX, lamp5.absoluteX, lamp6.absoluteX, lamp7.absoluteX, box.width]
+
                 Item {
                     property int absoluteX: modelData
                     width: modelData - x // (model.index === 0 ? 0 : repeater.itemAt(model.index -1).absoluteX)
@@ -96,6 +99,7 @@ Rectangle {
             Item {
                 id: rightLamps
                 anchors { left: cookerHood.right; right: shelf.left }
+
                 Row {
                     x: 20 - lampWidth/2
                     spacing: 25 - lampWidth
@@ -134,6 +138,7 @@ Rectangle {
 
                 Repeater {
                     model: 3
+
                     Box {
                         width: 30
                         height: 5
@@ -194,6 +199,7 @@ Rectangle {
                 visible: false
                 width: parent.width
                 anchors.bottom: parent.bottom
+
                 Rectangle {
                     // table top
                     height: 4

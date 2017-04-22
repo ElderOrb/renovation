@@ -59,8 +59,10 @@ Rectangle {
 
                     spacing: root.spacing
                     anchors.centerIn: parent
+
                     Repeater {
                         model: columnCount
+
                         Row {
                             x: model.index % 2 === 0 ? -itemSize.width/2 : 0
                             spacing: root.spacing

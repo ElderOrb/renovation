@@ -69,10 +69,12 @@ Rectangle {
                             font.pixelSize: 25
                             color: "black"
                         }
+
                         Item {
                             width: 1
                             height: 30 -loader.item.yOffset
                         }
+
                         Rectangle {
                             width: loader.width + 2
                             height: loader.height + 2

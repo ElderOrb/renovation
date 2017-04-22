@@ -11,6 +11,7 @@ Rectangle {
     Row {
         z: -1
         height: parent.height
+
         Item {
             width: 149
             height: parent.height
@@ -60,6 +61,7 @@ Rectangle {
 
                 Repeater {
                     model: 3
+
                     Box {
                         x: 15
                         height: 5
@@ -94,6 +96,7 @@ Rectangle {
                 id: table
                 width: parent.width
                 anchors.bottom: parent.bottom
+
                 Rectangle {
                     height: 4
                     width: parent.width
@@ -190,6 +193,7 @@ Rectangle {
             height: parent.height
             color: "gray"
         }
+
         Rectangle {
             width: 59
             height: parent.height
@@ -209,6 +213,7 @@ Rectangle {
                 anchors.horizontalCenter: parent.horizontalCenter
             }
         }
+
         Rectangle {
             width: 1
             color: "gray"
