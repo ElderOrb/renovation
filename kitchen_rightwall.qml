@@ -98,6 +98,7 @@ Rectangle {
                     width: parent.width
                     color: "black"
                 }
+
                 Row {
                     height: 70
                     width: parent.width

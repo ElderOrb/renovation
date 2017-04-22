@@ -11,19 +11,21 @@ Column {
         height: 1
         color: "gray"
     }
+
     Repeater {
         id: repeater
 
         Label {
             property real value: modelData
+
+            onImplicitWidthChanged: if (implicitWidth > root.width) root.width = implicitWidth
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
             height: model.index > 0 ? value - repeater.itemAt(model.index - 1).value : value
-            onImplicitWidthChanged: if (implicitWidth > root.width) root.width = implicitWidth
-            width: parent.width
-            anchors.horizontalCenter: parent.horizontalCenter
             text: showDecimal ? height.toFixed(1) : height.toString()
             font.pixelSize: fontPixelSize
+            width: parent.width
+
             Loader {
                 property int index: model.index
 

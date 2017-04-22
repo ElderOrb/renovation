@@ -10,23 +10,26 @@ Row {
         height: 20
         color: "gray"
     }
+
     Repeater {
         id: repeater
+
         Label {
             property real value: modelData
+
+            onImplicitHeightChanged: if (implicitHeight > root.height) root.height = implicitHeight
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
             width: model.index > 0 ? value - repeater.itemAt(model.index - 1).value : value
-            onImplicitHeightChanged: if (implicitHeight > root.height) root.height = implicitHeight
-            height: parent.height
-
-            anchors.verticalCenter: parent.verticalCenter
             text: showDecimal ? width.toFixed(1) : width.toString()
             font.pixelSize: fontPixelSize
+            height: parent.height
+
             Loader {
+                property int index: model.index
+
                 x: -1
                 visible: model.index > 0
-                property int index: model.index
                 anchors.top: parent.bottom
                 sourceComponent: ruler
             }
