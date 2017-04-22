@@ -8,14 +8,15 @@ Box {
         id: door
         anchors {
             right: parent.right
+            rightMargin: 5
             bottom: parent.bottom
         }
-        height: 210
-        width: 140
+        height: 205
+        width: 135
         Box {
             anchors {
                 fill: parent
-                margins: 10
+                margins: 5
                 bottomMargin: 0
             }
             Label {
@@ -68,7 +69,7 @@ Box {
         anchors {
             bottom: parent.bottom
             right: door.left
-            rightMargin: (parent.width - door.width - drawer.width - shelf.width)/2
+            rightMargin: (parent.width - door.width - door.anchors.rightMargin - drawer.width - shelf.width)/2
         }
         opacity: 0.3
         Box {
@@ -129,7 +130,7 @@ Box {
 
         Repeater {
             id: repeater
-            model: [25, television.x, television.x + television.width, door.x, door.x + door.width]
+            model: [25, television.x, television.x + television.width, door.x, door.x + door.width + door.anchors.rightMargin]
             Label {
                 property int value: modelData
                 horizontalAlignment: Text.AlignHCenter
