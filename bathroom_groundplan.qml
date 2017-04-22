@@ -120,10 +120,19 @@ Rectangle {
                     anchors.fill: parent
                     onClicked: toiletSound.play()
                 }
+
                 Audio {
                     id: toiletSound
                     source: "sounds/toilet.m4a"
                 }
+            }
+
+            Box {
+                // bide
+                x: -1
+                y: 57
+                width: 7
+                height: width
             }
 
             Item {
@@ -176,14 +185,17 @@ Rectangle {
                         anchors { fill: parent; margins: 1 }
                     }
                 }
+
                 MouseArea {
                     anchors.fill: parent
                     onClicked: sinkSound.play()
                 }
+
                 Audio {
                     id: sinkSound
                     source: "sounds/sink.m4a"
                 }
+
                 Box {
                     // mirror
 
@@ -191,9 +203,11 @@ Rectangle {
                     width: 3
                     height: parent.height
                 }
+
                 Column {
                     spacing: 35
                     anchors.verticalCenter: parent.verticalCenter
+
                     Repeater {
                         model: 2
                         Box {
@@ -211,10 +225,12 @@ Rectangle {
                 anchors.bottomMargin: 15
                 anchors.bottom: parent.bottom
                 spacing: 1
+
                 Box {
                     width: 5
                     height: 3
                 }
+
                 Box {
                     property bool open
                     rotation: open ? 90 : 0
@@ -262,7 +278,6 @@ Rectangle {
                 }
 
                 Rectangle {
-
                     // head
                     radius: 8
                     width: 17
