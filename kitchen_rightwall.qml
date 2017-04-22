@@ -31,41 +31,37 @@ Rectangle {
                 }
             }
 
-            Label {
-                text: "19.5  + "
-                fontSizeMode: Text.HorizontalFit
-                anchors {
-                    left: parent.left
-                    leftMargin: 2
-                    bottom: shelf.top
-                    bottomMargin: 5
+            Repeater {
+                model: 2
+                Label {
+                    text: "19.5"
+                    fontSizeMode: Text.HorizontalFit
+                    font.pixelSize: 15
+                    horizontalAlignment: Text.AlignHCenter
+                    anchors {
+                        left: model.index == 0 ? parent.left : undefined
+                        leftMargin: 2
+                        right: model.index == 1 ? parent.right : undefined
+                        rightMargin: 2
+                        bottom: shelf.top
+                    }
                 }
             }
 
-            Label {
-                text: "+  19.5"
-                fontSizeMode: Text.HorizontalFit
-                anchors {
-                    right: parent.right
-                    rightMargin: 2
-                    bottom: shelf.top
-                    bottomMargin: 5
-                }
-            }
 
             Column {
                 id: shelf
                 anchors { bottom: table.top; bottomMargin: 50 }
-                width: parent.width
+                x: 15
+                width: parent.width - 2*x
                 spacing: 20
 
                 Repeater {
                     model: 3
 
                     Box {
-                        x: 15
                         height: 5
-                        width: parent.width - 2*x
+                        width: parent.width
 
                         Label {
                             text: height.toString()

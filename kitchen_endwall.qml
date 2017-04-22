@@ -12,27 +12,15 @@ Rectangle {
     Column {
         x: 10
 
-        Row {
+        LabelRow {
             id: labelRow
-
-            Repeater {
-                id: repeater
-                model: [lamp1.absoluteX, lamp2.absoluteX, lamp3.absoluteX, lamp4.absoluteX, lamp5.absoluteX, lamp6.absoluteX, lamp7.absoluteX, box.width]
-
-                Item {
-                    property int absoluteX: modelData
-                    width: modelData - x // (model.index === 0 ? 0 : repeater.itemAt(model.index -1).absoluteX)
-                    height: label.height + 5
-                    Label {
-                        id: label
-                        text: parent.width == 26 ? 25 : (parent.width == 64 ? 65 : (parent.width == 101 ? 100 : parent.width))
-                        anchors.horizontalCenter: parent.horizontalCenter
-                    }
-                }
-            }
+            model: [lamp1.absoluteX, lamp2.absoluteX, lamp3.absoluteX, lamp4.absoluteX, lamp5.absoluteX, lamp6.absoluteX, lamp7.absoluteX, box.width]
+            height: implicitHeight + 10
+            ruler: null
         }
 
         Box {
+            z: -1
             id: box
 
             y: 30

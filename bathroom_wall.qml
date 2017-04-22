@@ -178,57 +178,20 @@ Rectangle {
                     }
                 }
 
-                Row {
+                LabelRow {
+                    showDecimal: true
+                    fontPixelSize: 12
                     anchors.bottom: parent.top
                     anchors.bottomMargin: 5
-                    Repeater {
-                        id: repeater2
-                        model: [lamps.x, lamps.x + 8.6, lamps.x + lamps.width - 8.6, lamps.x + lamps.width, parent.parent.width]
-                        Label {
-                            opacity: model.index === 0 ? 0.0 : 1.0
-                            property real value: modelData
-                            horizontalAlignment: Text.AlignHCenter
-                            verticalAlignment: Text.AlignVCenter
-                            width: model.index > 0 ? value - repeater2.itemAt(model.index - 1).value : value
-                            text: width.toFixed(1)
-                            font.pixelSize: 12
-                            Rectangle {
-                                anchors.top: parent.bottom
-                                height: 20
-                                width: 1
-                                x: -1
-
-                                color: "gray"
-                            }
-                        }
-                    }
+                    model: [lamps.x, lamps.x + 8.6, lamps.x + lamps.width - 8.6, lamps.x + lamps.width, parent.width]
                 }
-                Column {
+                LabelColumn {
                     anchors {
                         left: lamps.right
                         leftMargin: 20
                     }
-                    Repeater {
-                        id: repeater
-                        model: [lamps.y, lamps.y + lamps.height, mirror.y]
-                        Label {
-                            property int value: modelData
-                            horizontalAlignment: Text.AlignHCenter
-                            verticalAlignment: Text.AlignVCenter
-                            height: model.index > 0 ? value - repeater.itemAt(model.index - 1).value : value
-                            text: height.toString()
-                            font.pixelSize: 12
-                            Rectangle {
-                               anchors.bottom: parent.bottom
-                                anchors.right: parent.left
-                                anchors.rightMargin: 3
-                                width: 15
-                                height: 1
-                                y: -1
-                                color: "gray"
-                            }
-                        }
-                    }
+                    model: [lamps.y, lamps.y + lamps.height, mirror.y]
+                    fontPixelSize: 12
                 }
                 Box {
                     id: mirror

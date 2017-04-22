@@ -130,58 +130,31 @@ Box {
         }
     }
 
-    Row {
+    LabelRow {
         height: 35
         anchors.bottom: shelf.top
-        anchors.bottomMargin: 10
-
-        Repeater {
-            id: repeater
-            model: [25, television.x, television.x + television.width, door.x, door.x + door.width + door.anchors.rightMargin]
-
-            Label {
-                property int value: modelData
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                width: model.index > 0 ? value - repeater.itemAt(model.index - 1).value : modelData
-                text: width === 51 ? "50" : width.toString()
-                height: parent.height
-                Rectangle {
-                    y: 10
-                    height: model.index > 1 && model.index < 4 ? 75 : 20
-                    width: 1
-                    color: "gray"
-                }
-            }
+        anchors.bottomMargin: 30
+        model: [25, television.x, television.x + television.width, door.x, door.x + door.width + door.anchors.rightMargin]
+        ruler: Rectangle {
+            y: -6
+            width: 1
+            color: "gray"
+            height: parent.index > 1 && parent.index < 4 ? 75 : 33
         }
     }
 
-    Column {
+    LabelColumn {
+        fontPixelSize: 15
+        model: [television.y, television.y + television.height, parent.parent.height]
         anchors {
             left: television.right
-            leftMargin: 22
+            leftMargin: 18
         }
-
-        Repeater {
-            id: repeater2
-            model: [television.y, television.y + television.height, parent.parent.height]
-
-            Label {
-                property int value: modelData
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                height: model.index > 0 ? value - repeater2.itemAt(model.index - 1).value : modelData
-                text: (model.index === 0 ? "\n\n" : "") +  height.toString()
-                font.pixelSize: 15
-
-                Rectangle {
-                    width: 20
-                    x: -width
-                    height: 1
-                    color: "gray"
-                }
-            }
-
+        ruler: Rectangle {
+            x: 7
+            width: 20
+            height: 1
+            color: "gray"
         }
     }
 
