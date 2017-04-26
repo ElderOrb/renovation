@@ -39,6 +39,10 @@ Rectangle {
                     horizontalCenterOffset: 6
                 }
             }
+            Rectangle {
+                color: "white"
+                anchors { fill: cookerHood; margins: -5 }
+            }
 
             Box {
                 height: 3
@@ -76,10 +80,13 @@ Rectangle {
                     Lamp {
                         id: lamp1
                         cordHeight: 90
+                        bulbWidth: 12.5
                     }
                     Lamp {
                         id: lamp2
                         cordHeight: 80
+                        bulbWidth: 6
+
                     }
                 }
             }
@@ -95,22 +102,27 @@ Rectangle {
                     Lamp {
                         id: lamp3
                         cordHeight: 80
+                        bulbWidth: 9.5
                     }
                     Lamp {
                         id: lamp4
                         cordHeight: 100
+                        bulbWidth: 12.5
                     }
                     Lamp {
                         id: lamp5
                         cordHeight: 85
+                        bulbWidth: 6
                     }
                     Lamp {
                         id: lamp6
                         cordHeight: 95
+                        bulbWidth: 6
                     }
                     Lamp {
                         id: lamp7
                         cordHeight: 105
+                        bulbWidth: 9.5
                     }
                 }
             }
@@ -156,10 +168,7 @@ Rectangle {
                 }
             }
 
-            Rectangle {
-                color: "white"
-                anchors { fill: cookerHood; margins: -5 }
-            }
+
 
             Column {
                 id: cookerHood
