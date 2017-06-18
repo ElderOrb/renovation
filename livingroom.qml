@@ -22,7 +22,7 @@ Rectangle {
             spacing: 20
             Label {
                 color: "black"
-                text: "Olohuone"
+                text: "Living room"
                 font.pixelSize: 40
                 anchors.horizontalCenter: parent.horizontalCenter
             }
@@ -35,11 +35,11 @@ Rectangle {
                     model: ListModel {
                         ListElement {
                             source: "livingroom_leftwall.qml"
-                            title: "Vasen seinä"
+                            title: "Left wall"
                         }
                         ListElement {
                             source: "livingroom_endwall.qml"
-                            title: "Päätyseinä"
+                            title: "End wall"
                         }
                     }
 

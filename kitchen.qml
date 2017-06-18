@@ -23,14 +23,7 @@ Rectangle {
 
             Label {
                 color: "black"
-                text: "Hyllyt 110cm x 30cm x 5cm"
-                anchors.right: parent.right
-                font.pixelSize: 15
-            }
-
-            Label {
-                color: "black"
-                text: "Pöytä 10cm x 200cm"
+                text: "Shelves 110cm x 30cm x 5cm"
                 anchors.right: parent.right
                 font.pixelSize: 15
             }
@@ -42,7 +35,7 @@ Rectangle {
 
             Label {
                 color: "black"
-                text: "Keittiö"
+                text: "Kitchen"
                 font.pixelSize: 40
                 anchors.horizontalCenter: parent.horizontalCenter
             }
@@ -54,11 +47,11 @@ Rectangle {
                     model: ListModel {
                         ListElement {
                             source: "kitchen_endwall.qml"
-                            title: "Päätyseinä"
+                            title: "End wall"
                         }
                         ListElement {
                             source: "kitchen_rightwall.qml"
-                            title: "Oikea seinä"
+                            title: "Right wall"
                         }
                     }
 

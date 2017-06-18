@@ -22,7 +22,7 @@ Rectangle {
 
             Label {
                 color: "black"
-                text: "Valot"
+                text: "Lights"
                 font.pixelSize: 40
                 anchors.horizontalCenter: parent.horizontalCenter
             }
@@ -34,15 +34,15 @@ Rectangle {
                     model: ListModel {
                         ListElement {
                             source: "kitchen_endwall.qml"
-                            title: "Keittiö"
+                            title: "Kitchen"
                         }
                         ListElement {
                             source: "diningarea_table.qml"
-                            title: "Ruokailupöytä"
+                            title: "Dining table"
                         }
                         ListElement {
                             source: "bathroom_wall.qml"
-                            title: "Kylpyhuone"
+                            title: "Bathroom"
                         }
                     }
 

@@ -28,7 +28,7 @@ Box {
 
         Label {
             y: 5
-            text: "KK 255"
+            text: "KIT 255"
             horizontalAlignment: Text.AlignHCenter
             anchors.horizontalCenter: parent.horizontalCenter
         }
@@ -126,7 +126,7 @@ Box {
 
     Label {
         y: 5
-        text: "OH"
+        text: "LR"
         verticalAlignment: Text.AlignVCenter
         anchors {
             top: coldCabinets.bottom

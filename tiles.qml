@@ -23,7 +23,7 @@ Rectangle {
         height: 5*content.spacing
         verticalAlignment: Text.AlignVCenter
         anchors.horizontalCenter: parent.horizontalCenter
-        text: "Tiili " + (itemSize.width/tiles.scale).toString() + "mm x " + (itemSize.height/tiles.scale).toString() + "mm"
+        text: "Tile " + (itemSize.width/tiles.scale).toString() + "mm x " + (itemSize.height/tiles.scale).toString() + "mm"
         font {
             pixelSize: 60
             weight: Font.Light

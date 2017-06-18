@@ -21,7 +21,7 @@ Rectangle {
             anchors.centerIn: parent
             Label {
                 color: "black"
-                text: "Kylpyhuone"
+                text: "Bathroom"
                 font.pixelSize: 40
                 anchors.horizontalCenter: parent.horizontalCenter
             }
@@ -33,11 +33,11 @@ Rectangle {
                     model: ListModel {
                         ListElement {
                             source: "bathroom_groundplan.qml"
-                            title: "Pohjapiirros"
+                            title: "Ground plan"
                         }
                         ListElement {
                             source: "bathroom_wall.qml"
-                            title: "Päätyseinä"
+                            title: "Bathroom wall"
                         }
                     }
 
