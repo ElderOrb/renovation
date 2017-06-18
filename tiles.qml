@@ -15,7 +15,7 @@ Rectangle {
 
     MouseArea {
         anchors.fill: parent
-        onPositionChanged: multiplier = 2* mouseX/width
+        onPositionChanged: multiplier = Math.max(0.0, 2* mouseX/width)
     }
 
     Text {
