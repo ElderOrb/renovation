@@ -18,13 +18,10 @@ Rectangle {
         Column {
             id: column
             anchors.centerIn: parent
-
             spacing: 20
-            Label {
-                color: "black"
+
+            HeaderLabel {
                 text: "Living room"
-                font.pixelSize: 40
-                anchors.horizontalCenter: parent.horizontalCenter
             }
 
             Row {

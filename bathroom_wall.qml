@@ -14,6 +14,7 @@ Rectangle {
         scale: 1
         spacing: 20
         anchors.centerIn: parent
+
         Box {
             id: wall
             width: 220
@@ -81,6 +82,7 @@ Rectangle {
                     height: parent.height
                     color: "black"
                 }
+
                 Box {
                     id: toilet
 
@@ -107,7 +109,6 @@ Rectangle {
                         source: "sounds/toilet.m4a"
                     }
                 }
-
 
                 Row {
                     id: lamps
@@ -185,6 +186,7 @@ Rectangle {
                     anchors.bottomMargin: 5
                     model: [lamps.x, lamps.x + 8.6, lamps.x + lamps.width - 8.6, lamps.x + lamps.width, parent.width]
                 }
+
                 LabelColumn {
                     anchors {
                         left: lamps.right
@@ -193,6 +195,7 @@ Rectangle {
                     model: [lamps.y, lamps.y + lamps.height, mirror.y]
                     fontPixelSize: 12
                 }
+
                 Box {
                     id: mirror
                     width: 60
@@ -284,7 +287,7 @@ Rectangle {
                 }
 
                 Box {
-                    // showerWall
+                    // shower wall
                     x: 15
                     width: 3
                     height: 190
@@ -294,7 +297,9 @@ Rectangle {
 
 
             Box {
-                height: 3
+                // towel holder
+
+                height: 5
                 width: 10
                 anchors {
                     right: parent.right
@@ -304,6 +309,7 @@ Rectangle {
                 }
             }
         }
+
         Item {
             height: wall.height
             width: person.width

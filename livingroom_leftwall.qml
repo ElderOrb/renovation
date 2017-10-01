@@ -14,7 +14,39 @@ Box {
             clip: true
             width: 220
             height: 270
-            color: "transparent"
+            color: Qt.rgba(0.9, 0.9, 0.9, 1.0)
+
+            Label {
+                anchors {
+                    bottom: parent.bottom
+                    bottomMargin: 5
+                    left: parent.left
+                    right: pillar.left
+                }
+                horizontalAlignment: Text.AlignHCenter
+                text: width.toString()
+            }
+
+            Box {
+                id: pillar
+                x: 42
+                width: 32
+                height: parent.height
+
+                Label {
+                    anchors {
+                        bottom: parent.bottom
+                        bottomMargin: 5
+                        horizontalCenter: parent.horizontalCenter
+                    }
+                    text: parent.width.toString()
+                }
+
+                SmallLabel {
+                    text: "Pillar"
+                    anchors.centerIn: parent
+                }
+            }
 
             Person {
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -22,12 +54,22 @@ Box {
 
             Label {
                 text: parent.height.toString()
-                color: "white"
                 anchors {
                     rightMargin: 5
                     right: parent.right
                     verticalCenter: parent.verticalCenter
                 }
+            }
+
+            Label {
+                anchors {
+                    bottom: parent.bottom
+                    bottomMargin: 5
+                    left: pillar.right
+                    right: parent.right
+                }
+                horizontalAlignment: Text.AlignHCenter
+                text: width.toString()
             }
         }
 
@@ -37,7 +79,6 @@ Box {
             color: "white"
 
             Label {
-                id: shelfWidth
                 text: shelf.width.toString()
                 anchors {
                     bottomMargin: 5
@@ -45,6 +86,7 @@ Box {
                     horizontalCenter: parent.horizontalCenter
                 }
             }
+
             Label {
                 text: parent.width.toString()
                 anchors {
@@ -117,6 +159,7 @@ Box {
             }
 
             Box {
+                // light switch
                 x: 27
                 width: 8
                 height: width
@@ -125,6 +168,7 @@ Box {
             }
 
             Box {
+                // socket
                 x: 119
                 width: 8
                 height: width

@@ -9,35 +9,16 @@ Rectangle {
     Item {
         id: container
 
-        scale: 1
         width: column.width
         height: column.height
         anchors.centerIn: parent
 
         Column {
-            anchors {
-                right: parent.right
-                bottom: parent.bottom
-                bottomMargin: -10
-            }
-
-            Label {
-                color: "black"
-                text: "Shelves 110cm x 30cm x 5cm"
-                anchors.right: parent.right
-                font.pixelSize: 15
-            }
-        }
-
-        Column {
             id: column
             spacing: 10
 
-            Label {
-                color: "black"
+            HeaderLabel {
                 text: "Kitchen"
-                font.pixelSize: 40
-                anchors.horizontalCenter: parent.horizontalCenter
             }
 
             Row {
@@ -56,18 +37,11 @@ Rectangle {
                     }
 
                     Column {
-                        Label {
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            text: model.title
-                            font.pixelSize: 25
-                            color: "black"
-                        }
 
                         Item {
                             width: 1
-                            height: 30 -loader.item.yOffset
+                            height: 30 - loader.item.yOffset
                         }
-
                         Rectangle {
                             width: loader.width + 2
                             height: loader.height + 2
@@ -77,6 +51,12 @@ Rectangle {
                                 anchors.centerIn: parent
                                 source: model.source
                             }
+                        }
+                        Label {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            text: model.title
+                            font.pixelSize: 25
+                            color: "black"
                         }
                     }
                 }

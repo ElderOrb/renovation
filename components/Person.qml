@@ -4,8 +4,13 @@ Column {
     property color color: "gray"
     width: 32
     spacing: 2
+    anchors {
+        bottom: parent.bottom
+        bottomMargin: 2
+    }
 
     Rectangle {
+        // head
         width: parent.width
         height: width
         color: parent.color
@@ -13,12 +18,15 @@ Column {
     }
 
     Rectangle {
+        // torso
         color: parent.color
         width: parent.width
         height: 166 + radius - 2 - width - leftLeg.height // head and spacing
         radius: width/2
     }
+
     Row {
+        // legs
         spacing: parent.spacing
         height: implicitHeight - leftLeg.radius*3
         width: parent.width
@@ -37,9 +45,5 @@ Column {
             radius: width/2
             anchors.bottom: parent.bottom
         }
-    }
-    anchors {
-        bottom: parent.bottom
-        bottomMargin: 2
     }
 }

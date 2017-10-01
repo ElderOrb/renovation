@@ -6,10 +6,11 @@ Rectangle {
     property alias yOffset: labelRow.height
 
     color: "white"
-    width: image.width*image.scale
-    height: image.height*image.scale
+    width: column.width
+    height: column.height
 
     Column {
+        id: column
         x: 10
 
         LabelRow {
@@ -20,29 +21,11 @@ Rectangle {
         }
 
         Box {
-            z: -1
             id: box
 
             y: 30
             width: 315
             height: 270
-            color: "transparent"
-
-            Image {
-                id: image
-                z: -1
-                scale: 1/2.133333
-                source: "images/kitchen_endwall.png"
-                anchors {
-                    centerIn: parent
-                    verticalCenterOffset: 23
-                    horizontalCenterOffset: 6
-                }
-            }
-            Rectangle {
-                color: "white"
-                anchors { fill: cookerHood; margins: -5 }
-            }
 
             Box {
                 height: 3
@@ -75,7 +58,7 @@ Rectangle {
                 id: leftLamps
                 width: cookerHood.x
                 Row {
-                    x: 25-lampWidth/2
+                    x: 25 - lampWidth/2
                     spacing: 25 - lampWidth
                     Lamp {
                         id: lamp1
@@ -191,9 +174,6 @@ Rectangle {
 
             Column {
                 id: table
-
-                opacity: 0.3
-                visible: false
                 width: parent.width
                 anchors.bottom: parent.bottom
 
@@ -203,24 +183,178 @@ Rectangle {
                     width: parent.width
                     color: "black"
                 }
-                Rectangle {
-                    // boxes
-                    color: "white"
-                    height: 70
+
+                Row {
                     width: parent.width
-                }
-                Rectangle {
-                    color: "gray"
-                    width: parent.width
-                    height: 1
-                }
-                Rectangle {
-                    color: "white"
-                    width: parent.width
-                    height: 15
+                    Column {
+                        id: cabins
+
+                        width: parent.width - corner.width
+                        Row {
+
+                            height: 70
+                            width: parent.width
+                            Item {
+                                Label {
+                                    anchors {
+                                        right: parent.left
+                                        rightMargin: 4
+                                        verticalCenter: parent.verticalCenter
+                                    }
+                                    text: parent.height.toString()
+                                }
+
+                                width: 12
+                                height: parent.height
+                            }
+
+                            Segment {
+                                // clothing washer
+                                Rectangle {
+                                    color: "black"
+                                    y: 2
+                                    height: 1
+                                    width: parent.width
+                                }
+                                SmallLabel {
+                                    text: "Clothing\nWasher"
+                                    anchors.centerIn: parent
+                                }
+                            }
+
+                            Segment {
+                                // oven
+                                Rectangle {
+                                    color: "black"
+                                    height: 1
+                                    width: parent.width
+                                    y: 12
+                                }
+                                Row {
+                                    y: 6
+                                    spacing: 16
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    Repeater {
+                                        model: 2
+                                        Box {
+                                            width: 4
+                                            height: width
+                                            radius: width/2
+                                        }
+                                    }
+                                }
+
+                                Box {
+                                    width: parent.width - 20
+                                    y: 17
+                                    height: 34
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    SmallLabel {
+                                        text: "Oven"
+                                        anchors.centerIn: parent
+                                    }
+
+                                }
+
+                                Rectangle {
+                                    color: "black"
+                                    anchors {
+                                        bottom: parent.bottom
+                                        bottomMargin: 7
+                                    }
+                                    height: 1
+                                    width: parent.width
+                                }
+                                Rectangle {
+                                    color: "black"
+                                    width: 1
+                                    height: parent.height
+                                }
+                            }
+
+                            Segment {
+                                // sink drawer
+                                Rectangle {
+                                    color: "black"
+                                    height: 1
+                                    width: parent.width
+                                    anchors.verticalCenter: parent.verticalCenter
+                                }
+                                Box {
+                                    y: -1
+                                    width: 50
+                                    height: 21 - 4
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    SmallLabel {
+                                        text: "Sink"
+                                        anchors.centerIn: parent
+                                    }
+                                }
+
+                                Column {
+                                    // tap
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    anchors.bottom: parent.top
+                                    Rectangle {
+                                        color: "black"
+                                        width: 3
+                                        height: 19
+                                        anchors.horizontalCenter: parent.horizontalCenter
+                                    }
+                                    Rectangle {
+                                        color: "black"
+                                        width: 7
+                                        height: 15
+                                    }
+                                }
+                                height: parent.height
+                            }
+                            Segment {
+                                // dish washer
+                                Rectangle {
+                                    color: "black"
+                                    y: 2
+                                    height: 1
+                                    width: parent.width
+                                }
+                                SmallLabel {
+                                    text: "Dish\nWasher"
+                                    anchors.centerIn: parent
+                                }
+                                Rectangle {
+                                    color: "black"
+                                    height: parent.height
+                                    anchors.right: parent.right
+                                    width: 1
+                                }
+                            }
+                        }
+
+                        Box {
+                            // cabin list
+                            Label {
+                                anchors {
+                                    right: parent.left
+                                    rightMargin: 4
+                                    verticalCenter: parent.verticalCenter
+                                }
+                                text: parent.height.toString()
+                            }
+
+                            color: "white"
+                            width: parent.width
+                            height: 16
+                        }
+                    }
+
+                    Rectangle {
+                        id: corner
+                        color: "gray"
+                        width: 63
+                        height: cabins.height
+                    }
                 }
             }
         }
     }
 }
-

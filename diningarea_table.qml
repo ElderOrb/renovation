@@ -11,6 +11,8 @@ Box {
         height: 360
 
         Item {
+            // original lamp position
+
             y: 120
             anchors.horizontalCenter: parent.horizontalCenter
 
@@ -24,17 +26,21 @@ Box {
                 height: 12
                 anchors.centerIn: parent
             }
+            Rectangle {
+                width: 10
+                height: 2
+                anchors.centerIn: parent
+            }
         }
 
         Label {
             y: 5
-            text: "KIT 255"
+            text: "255"
             horizontalAlignment: Text.AlignHCenter
             anchors.horizontalCenter: parent.horizontalCenter
         }
 
         Label {
-            visible: false
             text: width.toString()
             anchors {
                 left: parent.left
@@ -42,6 +48,26 @@ Box {
                 bottom: parent.bottom
             }
             horizontalAlignment: Text.AlignHCenter
+        }
+
+        Repeater {
+            // chairs
+            model: 2
+            Column {
+                anchors.verticalCenter: table.verticalCenter
+                x: table.x + (model.index === 0 ? - width + 1 : table.width - 1)
+
+                property int index: model.index
+                spacing: 20
+                Repeater {
+                    model: 3
+                    Box {
+                        // chair
+                        height: 35
+                        width: 8
+                    }
+                }
+            }
         }
 
         Box {
@@ -62,7 +88,7 @@ Box {
                 text: table.height.toString()
                 anchors {
                     left: parent.right
-                    leftMargin: 5
+                    leftMargin: 15
                     verticalCenter: parent.verticalCenter
                 }
             }
@@ -102,8 +128,9 @@ Box {
                 Repeater {
                     model: 2
                     Box {
+                        // lamp
                         width: 40
-                        height: 40
+                        height: width
                         radius: width/2
                         color: "lightyellow"
 
@@ -126,7 +153,7 @@ Box {
 
     Label {
         y: 5
-        text: "LR"
+        text: (parent.height - coldCabinets.height).toString()
         verticalAlignment: Text.AlignVCenter
         anchors {
             top: coldCabinets.bottom

@@ -4,12 +4,12 @@ Rectangle {
     id: tiles
 
     property real scale: 0.5
-    property int viewSize: 400
+    property int viewSize: 250
     property real multiplier: 1.0
     property var spacings: [12*scale*multiplier, 15*scale*multiplier, 18*scale*multiplier]
     property size itemSize: Qt.size(215*scale, 65*scale)
 
-    color: "#808275"
+    color: "#7c7c7c"
     width: content.width + content.spacing*2
     height: content.height + content.spacing*6
 
@@ -25,7 +25,7 @@ Rectangle {
         anchors.horizontalCenter: parent.horizontalCenter
         text: "Tile " + (itemSize.width/tiles.scale).toString() + "mm x " + (itemSize.height/tiles.scale).toString() + "mm"
         font {
-            pixelSize: 60
+            pixelSize: 40
             weight: Font.Light
             family: "Source Sans Pro"
         }

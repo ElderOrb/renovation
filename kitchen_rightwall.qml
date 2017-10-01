@@ -30,24 +30,6 @@ Rectangle {
                 }
             }
 
-            Repeater {
-                model: 2
-                Label {
-                    text: shelf.x
-                    fontSizeMode: Text.HorizontalFit
-                    font.pixelSize: 15
-                    horizontalAlignment: Text.AlignHCenter
-                    anchors {
-                        left: model.index == 0 ? parent.left : undefined
-                        leftMargin: 2
-                        right: model.index == 1 ? parent.right : undefined
-                        rightMargin: 2
-                        bottom: shelf.top
-                    }
-                }
-            }
-
-
             Column {
                 id: shelf
                 anchors { bottom: table.top; bottomMargin: 50 }
@@ -59,6 +41,7 @@ Rectangle {
                     model: 3
 
                     Box {
+                        // drawer
                         height: 5
                         width: parent.width
 
@@ -103,6 +86,7 @@ Rectangle {
                     width: parent.width
 
                     Rectangle {
+                        id: corner
                         width: 60
                         height: parent.height
                         color: "gray"
@@ -120,15 +104,17 @@ Rectangle {
                     }
 
                     Column {
-                        width: 80
+                        // drawer
+
+                        width: parent.width - corner.width
                         Rectangle {
                             height: 20
                             color: "white"
                             width: parent.width
                         }
                         Rectangle {
-                            height: 1
                             color: "gray"
+                            height: 1
                             width: parent.width
                         }
                         Rectangle {
@@ -137,8 +123,8 @@ Rectangle {
                             width: parent.width
                         }
                         Rectangle {
-                            height: 1
                             color: "gray"
+                            height: 1
                             width: parent.width
                         }
                         Rectangle {
@@ -163,71 +149,73 @@ Rectangle {
             }
         }
 
-        Rectangle {
-            width: 1
+        Column {
+            width: longCabinets
             height: parent.height
-            color: "gray"
-        }
-
-        Rectangle {
-            width: 39
-            color: "white"
-            height: parent.height
-            Rectangle {
-                height: 1
-                color: "gray"
+            Box {
+                id: topWall
                 width: parent.width
-                anchors {
-                    bottom: parent.bottom
-                    bottomMargin: 84
-                }
-            }
-        }
-
-        Rectangle {
-            width: 1
-            height: parent.height
-            color: "gray"
-        }
-
-        Rectangle {
-            width: 59
-            height: parent.height
-            color: "white"
-            clip: true
-            Rectangle {
-                height: 1
-                width: parent.width
-                color: "gray"
-                anchors {
-                    bottom: parent.bottom
-                    bottomMargin: 84
-                }
+                height: 34
             }
 
-            Person {
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-        }
+            Row {
+                id: longCabinets
+                z: 1
+                height: parent.height - topWall.height - cabinetList.height - 1
 
-        Rectangle {
-            width: 1
-            color: "gray"
-            height: parent.height
-        }
-
-        Rectangle {
-            width: 59
-            height: parent.height
-            color: "white"
-            Rectangle {
-                height: 1
-                color: "gray"
-                width: parent.width
-                anchors {
-                    bottom: parent.bottom
-                    bottomMargin: 84
+                Cabinet {
+                    // dry goods drawer
+                    width: 40
+                    SmallLabel {
+                        y: 40
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: "Dry\nGoods"
+                    }
                 }
+
+                Cabinet {
+                    // first cold cabinet
+                    SmallLabel {
+                        y: 40
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: "Fridge"
+                    }
+                    Person {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.bottomMargin: -cabinetList.height + 1
+                    }
+                }
+
+                Cabinet {
+                    // second cold cabinet
+                    SmallLabel {
+                        y: 40
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: "Fridge"
+                    }
+                    SmallLabel {
+                        anchors {
+                            bottom: parent.bottom
+                            bottomMargin: 30
+                        }
+
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: "Freezer"
+                    }
+
+                }
+            }
+            Rectangle {
+                color: "gray"
+                height: 1
+                width: parent.width
+            }
+
+            Rectangle {
+                id: cabinetList
+                height: 15
+                color: "white"
+                width: parent.width
             }
         }
     }

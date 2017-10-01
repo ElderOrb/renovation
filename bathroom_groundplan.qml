@@ -78,6 +78,8 @@ Rectangle {
         }
 
         Box {
+            // sewer grate
+
             x: 15
             anchors {
                 bottom: parent.bottom
@@ -147,6 +149,7 @@ Rectangle {
                 y: 65
                 width: 49
                 height: 60
+
                 Box {
                     // sink
                     x: 12
@@ -256,6 +259,7 @@ Rectangle {
             anchors.bottom: parent.bottom
 
             Box {
+                // shower
                 width: 12
                 height: 20
                 anchors {
@@ -275,15 +279,6 @@ Rectangle {
                     rightMargin: 5
                     right: parent.right
                     verticalCenter: parent.top
-                }
-
-                Rectangle {
-                    // head
-                    radius: 8
-                    width: 17
-                    height: 21
-                    color: "gray"
-                    anchors.centerIn: parent
                 }
             }
         }

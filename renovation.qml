@@ -6,14 +6,15 @@ Rectangle {
     color: "white"
     width: flickable.width
     height: flickable.height
+
     Flickable {
         id: flickable
         contentHeight: container.height
         width: container.width
         height: 720
+
         Item {
             id: container
-
             width: column.width + 40
             height: column.height + 40
 
@@ -28,6 +29,7 @@ Rectangle {
                     }
                 }
             }
+
             Loader {
                 anchors.bottom: column.bottom
                 anchors.right: column.right

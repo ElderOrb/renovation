@@ -20,12 +20,10 @@ Rectangle {
             spacing: 20
             anchors.centerIn: parent
 
-            Label {
-                color: "black"
+            HeaderLabel {
                 text: "Lights"
-                font.pixelSize: 40
-                anchors.horizontalCenter: parent.horizontalCenter
             }
+
             Row {
                 id: row
                 spacing: 20

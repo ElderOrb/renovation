@@ -7,13 +7,14 @@ Box {
 
     Box {
         id: door
+
+        width: 135
+        height: 205
         anchors {
             right: parent.right
             rightMargin: 5
             bottom: parent.bottom
         }
-        height: 205
-        width: 135
 
         Box {
             anchors {
@@ -21,6 +22,8 @@ Box {
                 margins: 5
                 bottomMargin: 0
             }
+            color: Qt.rgba(0.9, 0.9, 0.9, 1.0)
+
             Label {
                 text: parent.height.toString()
                 verticalAlignment: Text.AlignVCenter
@@ -30,11 +33,12 @@ Box {
                     bottom: parent.bottom
                     bottomMargin: 15
                 }
-                font.pixelSize: 15
             }
         }
+
         Person {
             anchors.horizontalCenter: parent.horizontalCenter
+            anchors.horizontalCenterOffset: 10
         }
     }
 
@@ -71,7 +75,7 @@ Box {
 
     Column {
         id: sideboard
-        opacity: 0.3
+        opacity: 0.6
         anchors {
             bottom: parent.bottom
             right: door.left
