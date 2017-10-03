@@ -2,16 +2,6 @@ import QtQuick 2.0
 import "components"
 import QtMultimedia 5.0
 
-/*
-Bathroom
-- dimensions (100-120)x(64+156)x250
-- washbasin cabinet 60x49x(25+64=89 legs-drawer, 64=6+29+29)
-- toilet 70x35x(42-78)
-- mirror 60x96cm http://www.ikea.com/fi/fi/catalog/products/10182165/#/30149132
-- shower wall 48x190
-- lamps 8.6x15x14
-*/
-
 Rectangle {
 
     color: "white"
